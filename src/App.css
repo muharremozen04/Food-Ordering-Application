@@ -1,0 +1,41 @@
+body {
+  background-color: rgb(0, 48, 46);
+}
+
+.headerContainer {
+  display: flex;
+  margin-top: 3%;
+}
+
+.headerLogo {
+  width: 100%;
+}
+
+.logo {
+  height: 50px;
+  margin-left: 10%;
+}
+
+.headerMenu {
+  width: 100%;
+  display: flex;
+  list-style: none;
+  margin-left: 400px;
+}
+
+.headerList {
+  margin: 17px;
+  font-size: large;
+  font-weight: 900;
+}
+
+.bodyContainer {
+  background-color: aqua;
+  display: flex;
+}
+
+.salata {
+  height: 400px;
+  margin-top: 20%;
+  margin-right: 50px;
+}
