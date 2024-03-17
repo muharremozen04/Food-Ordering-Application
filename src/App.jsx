@@ -1,18 +1,20 @@
 import logo from "./assets/images/logo.png";
 import salata from "./assets/images/salata.png";
 import "./App.css";
+
 function App() {
   return (
     <div>
       <header className="headerContainer">
         <div className="headerLogo">
           <img className="logo" src={logo} alt="logo" />
+          <h3 className="logoName">Lilies</h3>
         </div>
 
         <ul className="headerMenu">
-          <li className="headerList">Home</li>
-          <li className="headerList">Login</li>
-          <li className="headerList">Sign Up</li>
+          <li className="headerList1">Home</li>
+          <li className="headerList2">Login</li>
+          <li className="headerList3">Sign Up</li>
         </ul>
       </header>
 
