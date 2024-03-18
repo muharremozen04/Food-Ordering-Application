@@ -14,7 +14,7 @@ function Home() {
 
         <ul className="headerMenu">
           <li className="headerList1">
-            <NavLink className="headerList1" to="/home">
+            <NavLink className="headerList1" to="/">
               Home
             </NavLink>
           </li>
