@@ -1,11 +1,35 @@
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Login.css";
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-function Login() {
+  const admin = {
+    email: "muharremozen04@gmail.com",
+    password: "123456",
+  };
+
+  const user = {
+    email: "berkan@gmail.com",
+    password: "123456",
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // if (email === admin.email && password === admin.password) {
+    // } else if (email === user.email && password === user.password) {
+    // } else {
+    //   alert("Email Veya Şifre Hatalı");
+    // }
+  };
+
   return (
     <div className="loginContainer">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h5>
-          SIGN IN
+          Login
           <p className="loginContainerParagraf">
             Enter your credentials to access your account
           </p>
@@ -17,6 +41,8 @@ function Login() {
             className="loginContainerUserName"
             placeholder="Enter your email"
             type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </label>
         <label>
@@ -25,9 +51,11 @@ function Login() {
             className="loginContainerPassword2"
             placeholder="Enter your password"
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <input type="submit" value="SIGN IN" />
+        <input type="submit" value="Login" />
         <p className="loginContainerParagraf2">
           Forgot your password?
           <a className="loginContainerAhref" href="">
@@ -37,6 +65,6 @@ function Login() {
       </form>
     </div>
   );
-}
+};
 
 export default Login;
