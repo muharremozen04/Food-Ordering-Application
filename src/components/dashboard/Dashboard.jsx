@@ -1,5 +1,5 @@
 function Dashboard() {
-  return <div>Dashboard123</div>;
+  return <div> ÇALIŞMALAR--- DEVAM EDİYOR ----ÇOK YAKINDA ......</div>;
 }
 
 export default Dashboard;
