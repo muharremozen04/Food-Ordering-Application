@@ -1,6 +1,6 @@
 import { useState } from "react";
-//import { NavLink } from "react-router-dom";
 import DashboardPage from "../../pages/DashboardPage";
+import UserPage from "../../pages/UserPage";
 import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -37,13 +37,8 @@ const Login = () => {
     );
   }
   if (userloggedIn) {
-    return <DashboardPage />;
+    return <UserPage userloggedIn={userloggedIn} />;
   }
-  // if (email === admin.email && password === admin.password) {
-  // } else if (email === user.email && password === user.password) {
-  // } else {
-  //   alert("Email Veya Şifre Hatalı");
-  // }
 
   return (
     <div className="loginContainer">
