@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+//import { NavLink } from "react-router-dom";
+import DashboardPage from "../../pages/DashboardPage";
 import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [adminloggedIn, setAdminLoggedIn] = useState(false);
+  const [userloggedIn, setUserLoggedIn] = useState(false);
 
   const admin = {
     email: "muharremozen04@gmail.com",
@@ -17,13 +20,30 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // if (email === admin.email && password === admin.password) {
-    // } else if (email === user.email && password === user.password) {
-    // } else {
-    //   alert("Email Veya Şifre Hatalı");
-    // }
+    if (email === admin.email && password === admin.password) {
+      setAdminLoggedIn(true);
+    } else if (email === user.email && password === user.password) {
+      setUserLoggedIn(true);
+    } else {
+      alert("Hatalı kullanıcı adı veya şifre");
+    }
   };
+  if (adminloggedIn) {
+    return (
+      <DashboardPage
+        adminloggedIn={adminloggedIn}
+        userloggedIn={userloggedIn}
+      />
+    );
+  }
+  if (userloggedIn) {
+    return <DashboardPage />;
+  }
+  // if (email === admin.email && password === admin.password) {
+  // } else if (email === user.email && password === user.password) {
+  // } else {
+  //   alert("Email Veya Şifre Hatalı");
+  // }
 
   return (
     <div className="loginContainer">
@@ -57,9 +77,9 @@ const Login = () => {
         </label>
         <input type="submit" value="Login" />
         <p className="loginContainerParagraf2">
-          Forgot your password?
-          <a className="loginContainerAhref" href="">
-            Reset Password
+          Not registered?
+          <a className="loginContainerAhref" href="/register">
+            Create an account
           </a>
         </p>
       </form>
