@@ -25,7 +25,7 @@ function MenuComponent() {
           <div className="menu-item" key={index}>
             <h3>{product.name}</h3>
             <p>Fiyat: {product.price}</p>
-            <img src={product.image} alt={product.name} />
+            <img className="MenuImage" src={product.image} alt={product.name} />
             <input
               type="text"
               placeholder="özel isteklerinizi yazın"
@@ -44,7 +44,7 @@ function MenuComponent() {
           <div key={index} className="menu-item">
             <h4>{item.name}</h4>
             <p>Fiyat: {item.price}</p>
-            <img src={item.image} alt={item.name} />
+            <img className="MenuImage" src={item.image} alt={item.name} />
             {item.specialRequest && <p>Özel İstek: {item.specialRequest}</p>}
             <button onClick={() => removeFromCart(index)}>Sil</button>
           </div>
