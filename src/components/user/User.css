@@ -33,3 +33,11 @@
 .menu-item button:hover {
   background-color: #0056b3;
 }
+
+img {
+  width: 150px;
+  height: 90px;
+}
+.MenuName {
+  text-align: center;
+}
