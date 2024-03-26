@@ -41,3 +41,7 @@
 .MenuName {
   text-align: center;
 }
+
+.cart {
+  display: flex;
+}
