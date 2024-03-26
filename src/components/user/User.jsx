@@ -6,15 +6,44 @@ function MenuComponent() {
   const [cart, setCart] = useState([]);
   const specialRequestsRefs = useRef({});
 
+  const [countdowns, setCountdowns] = useState({});
+
   function handleOrder(product, index) {
-    const specialRequest = specialRequestsRefs.current[index].value;
-    setCart((currentCart) => [...currentCart, { ...product, specialRequest }]);
+    const specialRequest = specialRequestsRefs.current[index]?.value || "";
+    const updatedCart = [...cart, { ...product, specialRequest }];
+    setCart(updatedCart);
+
+    startCountdown(updatedCart.length - 1, product.time);
   }
 
   function removeFromCart(indexToRemove) {
     setCart((currentCart) =>
       currentCart.filter((_, index) => index !== indexToRemove)
     );
+
+    const updatedCountdowns = { ...countdowns };
+    delete updatedCountdowns[indexToRemove];
+    setCountdowns(updatedCountdowns);
+  }
+
+  function startCountdown(index, time) {
+    setCountdowns((prevCountdowns) => ({
+      ...prevCountdowns,
+      [index]: time * 60,
+    }));
+
+    const interval = setInterval(() => {
+      setCountdowns((prevCountdowns) => {
+        const secondsLeft = prevCountdowns[index] - 1;
+        if (secondsLeft <= 0) {
+          clearInterval(interval);
+          return { ...prevCountdowns, [index]: 0 };
+        }
+        return { ...prevCountdowns, [index]: secondsLeft };
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
   }
 
   return (
@@ -46,6 +75,10 @@ function MenuComponent() {
             <p>Fiyat: {item.price}</p>
             <img className="MenuImage" src={item.image} alt={item.name} />
             {item.specialRequest && <p>Özel İstek: {item.specialRequest}</p>}
+            <p>
+              Hazırlanmasına Kalan Süre: {Math.floor(countdowns[index] / 60)}:
+              {("0" + (countdowns[index] % 60)).slice(-2)}
+            </p>
             <button onClick={() => removeFromCart(index)}>Sil</button>
           </div>
         ))}
