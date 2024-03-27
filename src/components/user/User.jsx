@@ -52,10 +52,11 @@ function MenuComponent() {
       <div className="menu-items">
         {Menu[0].products.map((product, index) => (
           <div className="menu-item" key={index}>
-            <h3>{product.name}</h3>
-            <p>Fiyat: {product.price}</p>
+            <h3 className="HamburgerName">{product.name}</h3>
+            <p className="HamburgerPrice">Fiyat: {product.price}</p>
             <img className="MenuImage" src={product.image} alt={product.name} />
             <input
+              className="OzelIstek"
               type="text"
               placeholder="özel isteklerinizi yazın"
               ref={(el) => (specialRequestsRefs.current[index] = el)}
@@ -68,14 +69,16 @@ function MenuComponent() {
       </div>
 
       <div className="cart">
-        <h3>Siparişleriniz</h3>
+        <h3 className="Siparişleriniz">Siparişleriniz</h3>
         {cart.map((item, index) => (
           <div key={index} className="menu-item">
-            <h4>{item.name}</h4>
-            <p>Fiyat: {item.price}</p>
+            <h4 className="HamburgerName">{item.name}</h4>
+            <p className="HamburgerPrice">Fiyat: {item.price}</p>
             <img className="MenuImage" src={item.image} alt={item.name} />
-            {item.specialRequest && <p>Özel İstek: {item.specialRequest}</p>}
-            <p>
+            {item.specialRequest && (
+              <p className="ozel">Özel İstek: {item.specialRequest}</p>
+            )}
+            <p className="HazırlanmaTıme">
               Hazırlanmasına Kalan Süre: {Math.floor(countdowns[index] / 60)}:
               {("0" + (countdowns[index] % 60)).slice(-2)}
             </p>

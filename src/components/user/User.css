@@ -40,8 +40,29 @@
 }
 .MenuName {
   text-align: center;
+  color: #ccc;
 }
 
 .cart {
   display: flex;
+}
+.HamburgerName {
+  color: #ccc;
+}
+
+.HamburgerPrice {
+  color: #ccc;
+}
+.HazırlanmaTıme {
+  color: #ccc;
+}
+.Siparişleriniz {
+  color: #ccc;
+}
+
+.OzelIstek {
+  border-radius: 8px;
+}
+.ozel {
+  color: red;
 }
